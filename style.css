@@ -1,0 +1,510 @@
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url(./assets/fonts/SpaceGrotesk-VariableFont_wght.ttf);
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ROOT STYLING ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+:root {
+  /* COLOURS */
+  --clr-deep-violet: #21092f;
+  --clr-mid-violet: #67407c;
+  --clr-light-violet: #f7e8ff;
+  --clr-purplish-grey: #8f8694;
+  --clr-placeholder: #c8c2cb;
+  --clr-light-grey: #dfdee0;
+  --clr-white: #ffffff;
+  --clr-error: #ff5050;
+  --clr-gradient-purple: linear-gradient(to bottom, #6348fe, #610595);
+
+  /* TYPOGRAPHY */
+  --fs-100: 0.5625rem; /* 9px */
+  --fs-200: 0.75rem; /* 12px */
+  --fs-300: 0.875rem; /* 14px */
+  --fs-400: 1.125rem; /* 18px */
+  --fs-500: 1.375rem; /* 22px */
+  --fs-600: 1.75rem; /* 28px */
+
+  --ls-100: 0.0806rem; /* 1.29px */
+  --ls-200: 0.125rem; /* 2px */
+  --ls-300: 0.1375rem; /* 2.2px */
+  --ls-400: 0.2137rem; /* 3.42px */
+
+  --fs-card-details-small: var(--fs-100);
+  --fs-card-details-med: var(--fs-400);
+  --fs-form-label: var(--fs-200);
+  --fs-form-input: var(--fs-400);
+  --fs-form-error: var(--fs-200);
+  --fs-button-prim: var(--fs-400);
+  --fs-success-title: var(--fs-600);
+  --fs-success-p: var(--fs-400);
+
+  --ls-card-details-small: var(--ls-100);
+  --ls-card-details-med: var(--ls-300);
+  --ls-form-label: var(--ls-200);
+  --ls-success-title: var(--ls-400);
+
+  /* BOX SHADOW */
+  --shadow-card: 0px 39px 60px 0 rgba(0, 0, 0, 0.1425);
+
+  /* BORDER RADIUS */
+  --br-input: 0.5rem;
+
+  /* TRANSITION */
+  --transition-120-all: all 120ms ease-in-out;
+}
+
+@media (width >= 768px) {
+  :root {
+    --fs-card-details-small: var(--fs-300);
+    --fs-card-details-med: var(--fs-500);
+
+    --ls-card-details-small: var(--ls-200);
+    --ls-card-details-med: var(--ls-400);
+  }
+}
+
+@media (width >= 1024px) {
+  :root {
+    --fs-card-details-med: var(--fs-600);
+  }
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CSS RESET ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button {
+  font: inherit;
+  display: block;
+  cursor: pointer;
+}
+p {
+  text-wrap: pretty;
+}
+/* Remove number input arrows - general */
+input[type='number'] {
+  appearance: textfield;
+}
+/* Remove number input arrows - Chrome, Safari, Edge */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Remove number input arrows - Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ TYPOGRAPHY ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+}
+
+.card-visual {
+  color: var(--clr-white);
+}
+
+#cardVisualCvc,
+#cardVisualName,
+#cardVisualDate {
+  font-size: var(--fs-card-details-small);
+  letter-spacing: var(--ls-card-details-small);
+  text-transform: uppercase;
+}
+
+#cardVisualNumber {
+  font-size: var(--fs-card-details-med);
+  letter-spacing: var(--ls-card-details-med);
+}
+
+label {
+  font-size: var(--fs-form-label);
+  letter-spacing: var(--ls-form-label);
+  text-transform: uppercase;
+  color: var(--clr-deep-violet);
+}
+
+input {
+  font-size: var(--fs-form-input);
+  color: var(--clr-deep-violet);
+}
+
+input::placeholder {
+  color: var(--clr-placeholder);
+}
+
+.error {
+  font-size: var(--fs-form-error);
+  color: var(--clr-error);
+}
+
+.button-prim {
+  font-size: var(--fs-button-prim);
+  color: white;
+}
+
+.success-title {
+  font-size: var(--fs-success-title);
+  letter-spacing: var(--ls-success-title);
+  text-transform: uppercase;
+  color: var(--clr-deep-violet);
+}
+
+.success-p {
+  font-size: var(--fs-success-p);
+  color: var(--clr-purplish-grey);
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ UTILITY CLASSES ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.display-none {
+  display: none !important;
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ PAGE LAYOUT ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+main {
+  width: 100%;
+  max-width: 65.5625rem;
+  display: grid;
+  grid-template-rows: 20.6875rem 1fr;
+  justify-items: center;
+}
+
+.bg-mobile,
+.bg-desktop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+.bg-mobile {
+  width: 100%;
+  height: 240px;
+}
+
+.bg-desktop {
+  height: 100%;
+  display: none;
+}
+
+@media (width >= 768px) {
+  main {
+    grid-template-rows: 25rem 1fr;
+  }
+}
+
+@media (width >= 1024px) {
+  body {
+    height: 100dvh;
+    padding: 1.5rem;
+    display: grid;
+    place-items: center;
+  }
+
+  main {
+    grid-template-columns: 33.8125rem 1fr;
+    grid-template-rows: 100%;
+  }
+
+  .bg-mobile {
+    display: none;
+  }
+
+  .bg-desktop {
+    display: block;
+  }
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ CARD VISUALS ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+.card-visual {
+  --card-max-width: 286px;
+  --height-perc-of-width: 0.549;
+  padding: 2rem 1rem;
+  width: 100%;
+  max-width: 375px;
+}
+
+.card-back,
+.card-front {
+  height: calc(var(--card-max-width) * var(--height-perc-of-width));
+  width: 100%;
+  max-width: var(--card-max-width);
+  position: relative;
+  box-shadow: var(--shadow-card);
+  display: grid;
+  border-radius: 6px;
+}
+
+.card-back {
+  margin-left: auto;
+  background: url(./assets/images/bg-card-back.png) no-repeat center;
+  background-size: contain;
+  grid-template-columns: 15.675rem 1fr;
+  grid-template-rows: 5.25rem 1fr;
+  align-items: end;
+  justify-items: end;
+  justify-self: end;
+}
+
+.card-front {
+  top: -4.25rem;
+  padding: 1.1rem 1.1875rem;
+  background: url(./assets/images/bg-card-front.png) no-repeat center;
+  background-size: contain;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+
+  .card-logo {
+    align-self: self-start;
+    grid-column: span 2;
+    max-width: 3.375rem;
+  }
+
+  #cardVisualNumber {
+    grid-column: span 2;
+  }
+}
+
+@media (width >= 768px) {
+  .card-visual {
+    --card-max-width: 375px;
+    max-width: 500px;
+  }
+
+  .card-back {
+    grid-template-columns: 20.75rem 1fr;
+    grid-template-rows: 6.875rem 1fr;
+  }
+
+  .card-front {
+    top: -5.75rem;
+    padding: 1.5rem;
+
+    .card-logo {
+      max-width: 4.5rem;
+    }
+  }
+}
+
+@media (width >= 1024px) {
+  .card-visual {
+    --card-max-width: 447px;
+    padding: 0;
+    max-width: 541px;
+    display: grid;
+  }
+
+  .card-front,
+  .card-back {
+    border-radius: 0.625rem;
+  }
+
+  .card-front {
+    top: 0;
+    padding: 1.75rem 2rem 1.6563rem;
+
+    .card-logo {
+      max-width: 5.25rem;
+    }
+  }
+
+  .card-back {
+    order: 1;
+    margin-top: 2.3125rem;
+    grid-template-columns: 24.5rem 1fr;
+    grid-template-rows: 8.125rem 1fr;
+  }
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ FORM SECTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+.form-and-success {
+  --form-padding-inline: 1.5rem;
+  max-width: 37.5rem;
+  padding-inline: var(--form-padding-inline);
+}
+
+#cardDetailsForm {
+  margin-bottom: 2.8125rem;
+  position: relative;
+  z-index: 9999;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 0.6875rem;
+}
+
+#cardDetailsForm label {
+  width: fit-content;
+}
+
+.input-wrapper {
+  --br-wrapper: 0.5rem;
+  --p-wrapper: 1px;
+  position: relative;
+  background-image: var(--clr-gradient-purple);
+  padding: var(--p-wrapper);
+  width: 100%;
+  border-radius: calc(var(--br-wrapper) * 1.25);
+  transition: var(--transition-120-all);
+}
+
+.input-wrapper::after {
+  content: '';
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: var(--clr-light-grey);
+  height: 100%;
+  width: 100%;
+  border-radius: var(--br-wrapper);
+  transition: var(--transition-120-all);
+}
+
+.input-wrapper input {
+  position: relative;
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: calc(var(--br-wrapper) - var(--p-wrapper));
+  z-index: 20;
+  width: 100%;
+  padding: 0.6875rem 1rem;
+}
+
+.input-wrapper:has(input:focus-visible) {
+  border-radius: var(--br-wrapper);
+  &::after {
+    opacity: 0;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .input-wrapper:hover {
+    border-radius: var(--br-wrapper);
+    &::after {
+      opacity: 0;
+    }
+  }
+}
+
+.card-name-area,
+.card-number-area,
+.submit-area {
+  grid-column: span 2;
+}
+
+.input-container {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.exp-date-area {
+  .input-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  label {
+    grid-column: span 2;
+  }
+}
+
+.submit-area {
+  margin-top: 0.5rem;
+}
+
+.error {
+  padding-top: 0.5rem;
+}
+
+.error:empty {
+  display: none;
+}
+
+@media (width >= 1024px) {
+  .form-and-success {
+    --form-padding-inline: 0;
+    max-width: 23.8125rem;
+    align-self: center;
+    justify-self: end;
+  }
+
+  #cardDetailsForm {
+    gap: 1.625rem 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .input-container {
+    gap: 0.5rem 0.625rem;
+  }
+
+  .submit-area {
+    margin-top: 1.25rem;
+  }
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ BUTTON STYLING ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+.button-prim {
+  --border-width: 1px;
+  width: 100%;
+  padding-block: calc(0.9375rem - var(--border-width));
+  background-color: var(--clr-deep-violet);
+  border: none;
+  border-radius: var(--br-input);
+  transition: var(--transition-120-all);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button-prim:hover {
+    background-color: var(--clr-mid-violet);
+    box-shadow: 0 10px 20px 10px var(--clr-light-violet);
+  }
+}
+
+/* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ SUCCESS SECTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+.success {
+  margin-bottom: 5.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success .success-title {
+  margin-top: 2.1875rem;
+}
+
+.success .success-p {
+  margin-top: 1rem;
+}
+
+.success .button-prim {
+  margin-top: 3rem;
+}

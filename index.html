@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Interactive card details form</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <img src="./assets/images/bg-main-mobile.png" class="bg-mobile" alt="" />
+    <img src="./assets/images/bg-main-desktop.png" class="bg-desktop" alt="">
+
+    <main>
+      <!-- CARD VISUALS -->
+      <div class="card-visual">
+        <!-- card back -->
+        <div class="card-back">
+          <p id="cardVisualCvc">000</p>
+        </div>
+        <!-- card front -->
+        <div class="card-front">
+          <img class="card-logo" src="./assets/images/card-logo.svg" alt="" />
+          <p id="cardVisualNumber">0000 0000 0000 0000</p>
+          <p id="cardVisualName">Cardholder Name</p>
+          <p id="cardVisualDate">00/00</p>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <div class="form-and-success">
+        <form id="cardDetailsForm">
+          <!-- card name -->
+          <div class="form-group card-name-area">
+            <div class="input-container">
+              <label for="cardName">Cardholder Name</label>
+              <div class="input-wrapper">
+                <input type="text" id="cardName" placeholder="e.g. Jane Appleseed" />
+              </div>
+            </div>
+            <div class="error"></div>
+          </div>
+          <!-- card number -->
+          <div class="form-group card-number-area">
+            <div class="input-container">
+              <label for="cardNumber">Card Number</label>
+              <div class="input-wrapper">
+                <input type="number" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" />
+              </div>
+            </div>
+            <div class="error"></div>
+          </div>
+          <!-- expiry date -->
+          <div class="form-group exp-date-area">
+            <div class="input-container">
+              <label for="expDateM">Exp. Date (MM/YY)</label>
+              <div class="input-wrapper">
+                <input type="number" id="expDateM" placeholder="MM" />
+              </div>
+              <div class="input-wrapper">
+                <input type="number" id="expDateY" placeholder="YY" />
+              </div>
+            </div>
+            <div class="error"></div>
+          </div>
+          <!-- cvc -->
+          <div class="form-group cvc-area">
+            <div class="input-container">
+              <label for="cvcNumber">CVC</label>
+              <div class="input-wrapper">
+                <input type="number" id="cvcNumber" placeholder="e.g. 123" />
+              </div>
+            </div>
+            <div class="error"></div>
+          </div>
+          <!-- submit button -->
+          <button class="button-prim submit-area" type="submit">Confirm</button>
+        </form>
+
+        <!-- SUCCESS MESSAGE -->
+        <div class="success display-none">
+          <img src="./assets/images/icon-complete.svg" alt="" />
+          <p class="success-title">Thank you!</p>
+          <p class="success-p">We've added your card details</p>
+          <button class="button-prim">Continue</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
