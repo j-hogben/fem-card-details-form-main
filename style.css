@@ -218,6 +218,12 @@ main {
 }
 
 @media (width >= 768px) {
+  body {
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+  }
+
   main {
     grid-template-rows: 25rem 1fr;
   }
@@ -225,10 +231,7 @@ main {
 
 @media (width >= 1024px) {
   body {
-    height: 100dvh;
     padding: 1.5rem;
-    display: grid;
-    place-items: center;
   }
 
   main {
@@ -349,11 +352,14 @@ main {
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ FORM SECTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 .form-and-success {
   --form-padding-inline: 1.5rem;
-  max-width: 37.5rem;
   padding-inline: var(--form-padding-inline);
+  width: 100%;
+  display: grid;
+  place-items: center;
 }
 
 #cardDetailsForm {
+  max-width: 37.5rem;
   margin-bottom: 2.8125rem;
   position: relative;
   z-index: 9999;
@@ -452,14 +458,15 @@ main {
 @media (width >= 1024px) {
   .form-and-success {
     --form-padding-inline: 0;
-    max-width: 23.8125rem;
     align-self: center;
-    justify-self: end;
   }
 
   #cardDetailsForm {
+    max-width: 23.8125rem;
     gap: 1.625rem 1.25rem;
     margin-bottom: 0;
+    margin-inline: initial;
+    margin-left: auto;
   }
 
   .input-container {
@@ -482,6 +489,11 @@ main {
   transition: var(--transition-120-all);
 }
 
+.button-prim:focus-visible {
+  background-color: var(--clr-mid-violet);
+  box-shadow: 0 10px 20px 10px var(--clr-light-violet);
+}
+
 @media (hover: hover) and (pointer: fine) {
   .button-prim:hover {
     background-color: var(--clr-mid-violet);
@@ -491,6 +503,8 @@ main {
 
 /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ SUCCESS SECTION ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
 .success {
+  width: 100%;
+  max-width: 23.8125rem;
   margin-bottom: 5.125rem;
   display: flex;
   flex-direction: column;
@@ -507,4 +521,10 @@ main {
 
 .success .button-prim {
   margin-top: 3rem;
+}
+
+@media (width >= 1024px) {
+  .success {
+    margin-bottom: 0;
+  }
 }
